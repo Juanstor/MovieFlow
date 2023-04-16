@@ -1,1 +1,1 @@
-console.log('Hello man');
+console.log('API URL = https://luhiulhiusf.com/ahiuhiudaiu?api_jey=EXAMPLE' + API_KEY)
