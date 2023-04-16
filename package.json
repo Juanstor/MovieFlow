@@ -1,0 +1,19 @@
+{
+  "name": "movieflow",
+  "version": "1.0.0",
+  "description": "Movie page using HTML, CSS, JS and API to receive news about movie trends and thus make a decision to choose the best movie to watch now.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juanstor/MovieFlow.git"
+  },
+  "author": "@juanstor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Juanstor/MovieFlow/issues"
+  },
+  "homepage": "https://github.com/Juanstor/MovieFlow#readme"
+}
