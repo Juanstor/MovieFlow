@@ -7,7 +7,7 @@ trendingBtn.addEventListener('click', () => {
 });
 
 arrowBtn.addEventListener('click', () => {
-    location.hash = '#home';
+    history.back();
 });
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -91,6 +91,10 @@ function movieDetailsPage() {
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
 
+    // Get id movie
+    const [_, movieId] = location.hash.split('=');
+    getMovieById(movieId);
+
 }
 function searchPage() {
     console.log('Search!!');
@@ -108,7 +112,7 @@ function searchPage() {
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
-    // Get query in URL
+    // Get query from URL
     const [_, query] = location.hash.split('=');
     getMoviesBySearch(query);
 }
@@ -127,5 +131,9 @@ function trendsPage() {
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+
+    headerCategoryTitle.innerHTML = 'Tendencias';
+
+    getTrendingMovies();
 }
 
