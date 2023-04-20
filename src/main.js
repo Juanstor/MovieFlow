@@ -4,7 +4,7 @@ const api = axios.create({
         'Content-Type': 'application/json;charset=utf-8',
     },
     params: {
-        'api_key': API_KEY,  
+        'api_key': 'f265b4cc20d3ea15ee31a76ad47f2bc' + '3',  
     }
 });
 
@@ -111,12 +111,18 @@ async function getMovieById(id) {
     url(${movieImgUrl})`
     ;
 
-    background: 
-    
-
     movieDetailTitle.textContent = movie.title;
     movieDetailDescription.textContent = movie.overview;
     movieDetailScore.textContent = movie.vote_average;
 
     createCategories(movie.genres, movieDetailCategoriesList);
+    getReatedMoviesId(id)
 }
+
+async function getReatedMoviesId(id) {
+    const {data} = await api(`movie/${id}/recommendations`);
+    const relatedMovies = data.results;
+
+    createMovies(relatedMovies, relatedMoviesContainer);
+    relatedMoviesContainer.scrollTo(0, 0);
+};
