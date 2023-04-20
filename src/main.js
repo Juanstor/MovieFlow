@@ -9,8 +9,8 @@ const api = axios.create({
 });
 
 
-// UTILS
 
+// UTILS
 function createMovies(movies, container) {
     container.innerHTML = '';
 

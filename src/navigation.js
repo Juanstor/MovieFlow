@@ -79,7 +79,6 @@ function movieDetailsPage() {
     console.log('Movie!!');
 
     headerSection.classList.add('header-container--long');
-    // headerSection.style.background = '';
     arrowBtn.classList.remove('inactive');
     arrowBtn.classList.add('header-arrow--white');
     headerTitle.classList.add('inactive');
@@ -91,7 +90,7 @@ function movieDetailsPage() {
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
 
-    // Get id movie
+    // Get id movie [movie=61253] → { '_' = 'movieId' }
     const [_, movieId] = location.hash.split('=');
     getMovieById(movieId);
 
