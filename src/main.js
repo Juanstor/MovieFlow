@@ -35,9 +35,7 @@ const api = axios.create({
     movies.forEach(movie => {
       const movieContainer = document.createElement('div');
       movieContainer.classList.add('movie-container');
-      movieContainer.addEventListener('click', () => {
-        location.hash = '#movie=' + movie.id;
-      });
+
   
       const movieImg = document.createElement('img');
       movieImg.classList.add('movie-img');
@@ -46,6 +44,9 @@ const api = axios.create({
         lazyLoad ? 'data-img' : 'src',
         'https://image.tmdb.org/t/p/w300' + movie.poster_path,
       );
+      movieImg.addEventListener('click', () => {
+        location.hash = '#movie=' + movie.id;
+      });
       movieImg.addEventListener('error', () => {
         movieImg.setAttribute(
           'src',
@@ -53,11 +54,19 @@ const api = axios.create({
         );
       })
   
+      const movieBtn = document.createElement('button');
+    movieBtn.classList.add('movie-btn');
+    movieBtn.addEventListener('click', () => {
+      movieBtn.classList.toggle('movie-btn--liked');
+      // DEBERIAMOS AGREGAR LA PELICULA A LS
+    });
+      
       if (lazyLoad) {
         lazyLoader.observe(movieImg);
       }
   
       movieContainer.appendChild(movieImg);
+      movieContainer.appendChild(movieBtn);
       container.appendChild(movieContainer);
     });
   }
@@ -119,6 +128,8 @@ const api = axios.create({
         scrollHeight,
         clientHeight
       } = document.documentElement;
+      
+
       
       const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
       const pageIsNotMax = page < maxPage;
