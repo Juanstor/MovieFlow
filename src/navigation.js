@@ -1,3 +1,4 @@
+let maxPage;
 let page = 1;
 let infiniteScroll;
 
@@ -6,11 +7,12 @@ searchFormBtn.addEventListener('click', () => {
 });
 
 trendingBtn.addEventListener('click', () => {
-    location.hash = '#trends';
+  location.hash = '#trends';
 });
 
 arrowBtn.addEventListener('click', () => {
-    history.back();
+  history.back();
+  // location.hash = '#home';
 });
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -58,11 +60,13 @@ function navigator() {
   
     trendingPreviewSection.classList.remove('inactive');
     categoriesPreviewSection.classList.remove('inactive');
+    likedMoviesSection.classList.remove('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
     
     getTrendingMoviesPreview();
     getCategoriesPreview();
+    getLikedMovies();
   }
   
   function categoriesPage() {
@@ -78,6 +82,7 @@ function navigator() {
   
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
+    likedMoviesSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
   
@@ -105,6 +110,7 @@ function navigator() {
   
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
+    likedMoviesSection.classList.add('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
   
@@ -126,6 +132,7 @@ function navigator() {
   
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
+    likedMoviesSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
   
@@ -148,6 +155,7 @@ function trendsPage() {
 
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
+    likedMoviesSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 

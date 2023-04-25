@@ -1,13 +1,43 @@
+// DATA
+
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
     },
     params: {
-      'api_key': API_KEY,
+      'api_key': 'f265b4cc20d3ea15ee31a76ad47f2bc' + '3',
     },
   });
   
+  function likedMoviesList() {
+    const item = JSON.parse(localStorage.getItem('liked_movies'));
+    let movies;
+  
+    if (item) {
+      movies = item;
+    } else {
+      movies = {};
+    }
+    
+    return movies;
+  }
+  
+  function likeMovie(movie) {
+    // movie.id
+    const likedMovies = likedMoviesList();
+  
+    console.log(likedMovies);
+
+    if (likedMovies[movie.id]) {
+      likedMovies[movie.id] = undefined;
+    } else {
+      likedMovies[movie.id] = movie;
+    }
+  
+    localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
+  }
+
   
   // Utils
   
@@ -52,14 +82,16 @@ const api = axios.create({
           'src',
           'https://static.platzi.com/static/images/error/img404.png',
         );
-      })
+      });
   
       const movieBtn = document.createElement('button');
-    movieBtn.classList.add('movie-btn');
-    movieBtn.addEventListener('click', () => {
-      movieBtn.classList.toggle('movie-btn--liked');
-      // DEBERIAMOS AGREGAR LA PELICULA A LS
-    });
+      movieBtn.classList.add('movie-btn');
+      likedMoviesList()[movie.id] && movieBtn.classList.add('movie-btn--liked');
+      movieBtn.addEventListener('click', () => {
+        movieBtn.classList.toggle('movie-btn--liked');
+        likeMovie(movie);
+        getLikedMovies();
+      });
       
       if (lazyLoad) {
         lazyLoader.observe(movieImg);
@@ -128,8 +160,6 @@ const api = axios.create({
         scrollHeight,
         clientHeight
       } = document.documentElement;
-      
-
       
       const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
       const pageIsNotMax = page < maxPage;
@@ -260,3 +290,12 @@ const api = axios.create({
   
     createMovies(relatedMovies, relatedMoviesContainer);
   }
+
+function getLikedMovies() {
+  const likedMovies = likedMoviesList();
+  const moviesArray = Object.values(likedMovies);
+
+  createMovies(moviesArray, likedMoviesListArticle, { lazyLoad: true, clean: true });
+  
+  console.log(likedMovies)
+}
