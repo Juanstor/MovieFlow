@@ -1,5 +1,4 @@
 // DATA
-
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
     headers: {
@@ -39,8 +38,7 @@ const api = axios.create({
   }
 
   
-  // Utils
-  
+  // UTILS
   const lazyLoader = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -91,6 +89,7 @@ const api = axios.create({
         movieBtn.classList.toggle('movie-btn--liked');
         likeMovie(movie);
         getLikedMovies();
+        getTrendingMoviesPreview();
       });
       
       if (lazyLoad) {
@@ -124,7 +123,7 @@ const api = axios.create({
     });
   }
   
-  // Llamados a la API
+  // LLAMADOS AL API
   
   async function getTrendingMoviesPreview() {
     const { data } = await api('trending/movie/day');
@@ -269,8 +268,8 @@ const api = axios.create({
     headerSection.style.background = `
       linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.35) 19.27%,
-        rgba(0, 0, 0, 0) 29.17%
+        rgba(255, 255, 255, 0.2) 5%,
+        rgba(255, 255, 255, 0) 30%
       ),
       url(${movieImgUrl})
     `;

@@ -2,21 +2,37 @@
 * { box-sizing: border-box; }
 
 :root {
-    --purple-light-1: #FBFAFB;
-    --purple-light-2: #EEEAF2;
-    --purple-medium-1: #AA83C8;
-    --purple-medium-2: #8B48BF;
-    --purple-medium-3: #5C218A;
-    --purple-dark-1: #3E0F64;
-    --purple-dark-2: #2A0646;
+    --just-white: #FFFFFF;  /* h1 h2 */ 
+    --purple-dark-1: #dbd2e4;   /* Btn */
+    --purple-medium-1: #a3aabb; /* Text no writen search*/
+    --purple-medium-2: #0E121B; /* Text writen search*/
+    --purple-light-1: #1A2133; /* Detalis info */
+    --purple-light-2: #f2efed; /* Search box */
+    --purple-medium-3: #151B29; /* Super back */
 
-    --yellow: #EECC75;
-    --green: #CAD297;
-    --aqua: #B7EAC5;
-    --lightBlue: #A2EEE5;
-    --darkBlue: #8EA2EA;
-    --red: #F09D9D;
+    --new-background: #1A2133; /* principal bg */
+    --text-bg: #1A2133;
 
+    --color-1: #E57373;
+    --color-2: #ffd94f;
+    --color-3: #fdb63b;
+    --color-4: #ebeb17;
+    --color-5: #9ba350;
+    --color-6: #3ab9ad;
+    --color-7: #54cb5a;
+    --color-8: #70d2ff;
+    --color-9: #298cdc;
+    --color-10: #9E9E9E;
+    --color-11: #a74ea4;
+    --color-12: #a986e5;
+    --color-13: #F06292;
+    --color-14: #fdbac1;
+    --color-15: #f77953;
+    --color-16: #986c5c;
+    --color-17: #90A4AE;
+    --color-18: #BDBDBD;
+    --color-19: #7986CB;
+  
     --font-family-titles: 'Dosis', sans-serif;
     --font-family-text: 'Red Hat Display', sans-serif;
     --font-weight-title1: 800;
@@ -30,8 +46,8 @@ html {
 }
 
 body {
-    background-color: var(--purple-light-1);
-    color: var(--purple-dark-2);
+    background-color: var(--new-background);
+    color: var(--just-white);
     font-family: var(--font-family-text);
     font-weight: var(--font-weight-text1);
     font-size: 16px;
@@ -46,7 +62,7 @@ h1, h2, h3 {
 
 h1, h2 {
     font-size: 24px;
-    color: var(--purple-dark-2);
+    color: var(--just-white);
     font-family: var(--font-family-titles);
     font-weight: var(--font-weight-title1);
     margin: 0;
@@ -55,12 +71,12 @@ h1, h2 {
 
 h2 {
     font-size: 18px;
-    color: var(--purple-dark-1);
+    color: var(--just-white);
     font-weight: var(--font-weight-title2);
 }
 
 h3 {
-    color: var(--purple-dark-2);
+    color: var(--just-white);
     font-weight: var(--font-weight-text2);
     font-size: 16px;
 }
@@ -133,19 +149,21 @@ button {
     position: absolute;
     top: 5px;
     right: 10px;
-    height: 30px;
-    width: 30px;
+    height: 28px;
+    width: 28px;
     border-radius: 30px;
-    padding: 0;
+    padding: 0 0 0.2px 0;
     margin: 0;
+    opacity: 0.6 ;
   }
 
 .movie-btn::before {
-    content: '🤍';
+    content: '🖤';
 }
 .movie-btn--liked {
     background-color: var(--purple-light-2);
-    box-shadow: 0px 0px 10px 2px var(--purple-dark-1);
+    box-shadow: 0px 0px 5px 2px var(--just-white);
+    opacity: 0.9 ;
 }
 .movie-btn--liked::before {
     content: '❤️';
@@ -183,7 +201,7 @@ button {
 
 .header-container--long {
     background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 19.27%, rgba(255, 255, 255, 0) 29.17%), url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
     background-size: cover !important;
     height: 480px;
     position: fixed;
@@ -244,6 +262,7 @@ button {
   border-radius: 8px;
   height: 32px;
   width: 72px;
+  color: var(--text-bg);
 }
 
 .trendingPreview-movieList,
@@ -296,25 +315,26 @@ button {
     width: 8px;
     height: 8px;
 }
-#id28 { --idColor: var(--yellow); }
-#id12 { --idColor: var(--red); }
-#id16 { --idColor: var(--green); }
-#id35 { --idColor: var(--lightBlue); }
-#id80 { --idColor: var(--darkBlue); }
-#id99 { --idColor: var(--purple-dark-1); }
-#id18 { --idColor: var(--purple-medium-1); }
-#id10751 { --idColor: var(--yellow); }
-#id14 { --idColor: var(--red); }
-#id36 { --idColor: var(--green); }
-#id27 { --idColor: var(--lightBlue); }
-#id10402 { --idColor: var(--darkBlue); }
-#id9648 { --idColor: var(--purple-dark-1); }
-#id10749 { --idColor: var(--purple-medium-1); }
-#id878 { --idColor: var(--yellow); }
-#id10770 { --idColor: var(--red); }
-#id53 { --idColor: var(--green); }
-#id10752 { --idColor: var(--lightBlue); }
-#id37 { --idColor: var(--darkBlue); }
+
+#id28 { --idColor: var(--color-1); }
+#id12 { --idColor: var(--color-2); }
+#id16 { --idColor: var(--color-3); }
+#id35 { --idColor: var(--color-4); }
+#id80 { --idColor: var(--color-5); }
+#id99 { --idColor: var(--color-6); }
+#id18 { --idColor: var(--color-7); }
+#id10751 { --idColor: var(--color-8); }
+#id14 { --idColor: var(--color-9); }
+#id36 { --idColor: var(--color-10); }
+#id27 { --idColor: var(--color-11); }
+#id10402 { --idColor: var(--color-12); }
+#id9648 { --idColor: var(--color-13); }
+#id10749 { --idColor: var(--color-14); }
+#id878 { --idColor: var(--color-15); }
+#id10770 { --idColor: var(--color-16); }
+#id53 { --idColor: var(--color-17); }
+#id10752 { --idColor: var(--color-18); }
+#id37 { --idColor: var(--color-19); }
 
 
 /* Generic List (search, trending & category) */
