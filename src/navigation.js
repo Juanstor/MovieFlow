@@ -142,6 +142,7 @@ function navigator() {
   
     infiniteScroll = getPaginatedMoviesBySearch(query);
   }
+  
 function trendsPage() {
     console.log('TRENDS!!');
 
@@ -165,4 +166,3 @@ function trendsPage() {
 
     infiniteScroll = getPaginatedTrendingMovies;
 }
-
